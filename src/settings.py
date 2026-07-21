@@ -20,15 +20,16 @@ class DataFolderSetting:
     """
     setting.data_folder
     """
-    cycle_date_folder: Path = "D:\SynologyDrive\Data\MCM_Loop\cycle_summary.csv"
-    output_folder: Path = "D:\SynologyDrive\Data\MCM_Loop\Processed_data"
+    cycle_date_folder: Path = "D:\\SynologyDrive\\Data\MCM_Loop\\cycle_summary.csv"
+    output_folder: Path = "D:\\SynologyDrive\\Data\\MCM_Loop\\Processed_data\\"
 
 @dataclass
 class EncodingSetting:
     """
     setting.encoding
     """
-    step_minutes: int = 1440
+    step_minutes: int = 5 # unit: minute
+    save_to_single_file: bool = True
 
 
 @dataclass

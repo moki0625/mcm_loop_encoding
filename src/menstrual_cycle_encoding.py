@@ -11,11 +11,11 @@ from datetime import datetime, timedelta
 from settings import Settings
 
 # constante setting
-MIN_CYCLE = 21
-MAX_CYCLE = 45
+MIN_CYCLE = 10
+MAX_CYCLE = 60
 
 def _parse_date(s: str, name: str) -> datetime:
-    for fmt in ("%Y-%m-%d", "%Y/%m/%d", "%d-%m-%Y", "%d/%m/%Y"):
+    for fmt in ("%Y-%m-%d", "%Y/%m/%d", "%m/%d/%Y", "%m-%d-%Y"):
         try:
             return datetime.strptime(s, fmt)
         except ValueError:
@@ -76,6 +76,9 @@ class CycleEncoding:
             cos_val = math.cos(theta)
             theta_pi = theta / math.pi
 
+            menses_onset = 1 if t == ps else 0
+            ovulation    = 1 if t == ov else 0
+
             records.append({
                 "ID": patient_id,
                 "cycle_number": cycle_num,
@@ -84,6 +87,8 @@ class CycleEncoding:
                 "theta_pi": theta_pi,
                 "cos_theta": cos_val,
                 "sin_theta": sin_val,
+                "menses_onset": menses_onset,
+                "ovulation": ovulation,
             })
 
             t += step
