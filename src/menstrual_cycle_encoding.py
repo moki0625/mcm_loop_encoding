@@ -85,8 +85,8 @@ class CycleEncoding:
                 "timestamp": t,
                 "phase": phase,
                 "theta_pi": theta_pi,
-                "cos_theta": cos_val,
-                "sin_theta": sin_val,
+                "cos": cos_val,
+                "sin": sin_val,
                 "menses_onset": menses_onset,
                 "ovulation": ovulation,
             })
